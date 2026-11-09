@@ -1,34 +1,41 @@
 # Clothing Store MVP
 
-A simple MVP for a clothing store built with Python and FastAPI. The project is intended to serve as a foundation for a small online store with product listing and a basic API layer.
+This project is a lightweight MVP for an online clothing store. It uses FastAPI as the backend framework and SQLAlchemy with SQLite to manage product data in a simple and extensible way.
 
-## Project objective
+## Project goal
 
-Create a lightweight backend that exposes a catalog of products and provides health and catalog endpoints for a future frontend integration.
+Create a functional backend foundation for a fashion storefront, including a health endpoint and a product model that can be expanded into a catalog, shopping cart, and checkout flow.
 
-## Features
+## Current features
 
-- FastAPI backend
-- Product catalog endpoint
-- Health check endpoint
-- Clean project structure for future expansion
+- FastAPI application setup
+- SQLite database connection
+- SQLAlchemy model for products
+- Health endpoint for service validation
+- Simple structure ready for future API and frontend expansion
 
 ## Project structure
 
 ```text
 loja-roupas-mvp/
 ├── .gitignore
-├── requirements.txt
+├── .venv/
 ├── README.md
+├── requirements.txt
+├── loja.db
 └── app/
     ├── __init__.py
-    └── main.py
+    ├── database.py
+    ├── main.py
+    └── models.py
 ```
 
-## Requirements
+## Technologies
 
 - Python 3.10+
-- pip
+- FastAPI
+- SQLAlchemy
+- SQLite
 
 ## Installation
 
@@ -38,25 +45,39 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Running the app
+## Running the application
 
 ```bash
 uvicorn app.main:app --reload
 ```
 
-Then open:
+Then access:
 
-- http://127.0.0.1:8000/
-- http://127.0.0.1:8000/health
+- http://127.0.0.1:8000/docs
+- http://127.0.0.1:8000/saude
+
+## Product model
+
+The current product record includes:
+
+- id
+- nome
+- descricao
+- preco_centavos
+- foto_url
+
+This makes it easy to expand the catalog and integrate items into the store front.
 
 ## Future improvements
 
-- Product catalog with categories and prices
+- Product listing and detail routes
+- Create, update, and delete product endpoints
+- Product categories and filters
 - Shopping cart and checkout flow
-- Authentication for admin and clients
-- Database integration
+- User authentication
+- Admin panel
 - Frontend interface
 
 ## License
 
-This project is for study and portfolio purposes.
+This project is intended for study and portfolio use.
