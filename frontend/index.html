@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fashion Store</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">Fashion Store</div>
+        <nav>
+          <a href="#">Home</a>
+          <a href="#">Catalog</a>
+          <a href="#">New Arrivals</a>
+        </nav>
+        <button id="cart-toggle" class="cart-toggle" type="button" aria-label="Open cart">
+          Cart <span id="cart-count" class="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">New collection</p>
+          <h1>Style that fits your day</h1>
+          <p class="subtitle">
+            Discover essential pieces for everyday comfort and modern looks.
+          </p>
+          <button class="primary-btn">Shop now</button>
+        </div>
+      </section>
+
+      <section class="admin-panel">
+        <div class="panel-header">
+          <h2>Add product</h2>
+        </div>
+
+        <form id="product-form" class="product-form">
+          <input type="hidden" id="product-id" name="product_id" />
+
+          <div class="field-row">
+            <label>
+              Name
+              <input type="text" id="nome" name="nome" required />
+            </label>
+            <label>
+              Price (in cents)
+              <input type="number" id="preco_centavos" name="preco_centavos" min="0" step="1" required />
+            </label>
+          </div>
+
+          <label>
+            Description
+            <textarea id="descricao" name="descricao" rows="3"></textarea>
+          </label>
+
+          <label>
+            Image URL
+            <input type="url" id="foto_url" name="foto_url" placeholder="https://images.unsplash.com/..." />
+          </label>
+
+          <div class="field-row">
+            <label>
+              Size
+              <input type="text" id="tamanho" name="tamanho" placeholder="P, M, G" />
+            </label>
+            <label>
+              Color
+              <input type="text" id="cor" name="cor" placeholder="Black" />
+            </label>
+            <label>
+              Stock
+              <input type="number" id="estoque" name="estoque" min="0" value="0" />
+            </label>
+          </div>
+
+          <button type="submit" class="primary-btn">Save product</button>
+        </form>
+      </section>
+
+      <section class="catalog-tools">
+        <div class="toolbar">
+          <label class="search-field" for="search-input">
+            <span>Search</span>
+            <input type="search" id="search-input" placeholder="Find by name or description" />
+          </label>
+
+          <div class="filter-group" aria-label="Categories">
+            <button class="filter-btn active" type="button" data-filter="all">All</button>
+            <button class="filter-btn" type="button" data-filter="dress">Dresses</button>
+            <button class="filter-btn" type="button" data-filter="outerwear">Outerwear</button>
+            <button class="filter-btn" type="button" data-filter="accessories">Accessories</button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title-row">
+          <h2>Featured products</h2>
+        </div>
+        <div id="products" class="products-grid"></div>
+      </section>
+    </main>
+
+    <aside id="cart-panel" class="cart-panel hidden" aria-hidden="true">
+      <div class="cart-header">
+        <h2>Your cart</h2>
+        <button type="button" class="cart-close" id="cart-close" aria-label="Close cart">×</button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-summary">
+        <div>
+          <span>Total</span>
+          <strong id="cart-total">R$ 0,00</strong>
+        </div>
+        <button type="button" class="primary-btn checkout-btn">Checkout</button>
+      </div>
+    </aside>
+
+    <div id="product-modal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close="true"></div>
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="close-btn" type="button" aria-label="Close" data-close="true">×</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
